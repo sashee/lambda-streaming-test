@@ -7,7 +7,7 @@ import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 import {pipeline} from "node:stream/promises";
 
 export const handler = awslambda.streamifyResponse(async (event, responseStream) => {
-console.log(JSON.stringify(event, undefined, 4))
+	console.log(JSON.stringify(event, undefined, 4))
 	const file = event.rawPath.match(/^.*\/(?<file>[^/]*)$/).groups.file;
 	console.log("file", file);
 	const client = new S3Client();
